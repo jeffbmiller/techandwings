@@ -14,6 +14,8 @@ namespace TechAndWings.ViewModels
 
             Messages.Add(new MessageViewModel(new Message(){Text="Welcome To Chat", User="Admin"}, user));
             Messages.Add(new MessageViewModel(new Message() { Text = "Where do we want to meet this month?", User = "Jeff" }, user));
+            Messages.Add(new MessageViewModel(new Message() { Text = "How about The Decker?", User = "James" }, user));
+            Messages.Add(new MessageViewModel(new Message() { Text = "Sounds good to me.", User = "Jeff" }, user));
         }
 
         public ObservableCollection<MessageViewModel> Messages { get; set; }
