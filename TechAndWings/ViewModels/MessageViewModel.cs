@@ -17,7 +17,5 @@ namespace TechAndWings.ViewModels
         public string Text => message.Text;
 
         public bool MyMessage => message.User == currentUser;
-
-        public string Position => "End";
     }
 }

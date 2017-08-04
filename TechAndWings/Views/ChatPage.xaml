@@ -4,17 +4,17 @@
     xmlns:local="clr-namespace:TechAndWings;assembly:TechAndWings"
     x:Class="TechAndWings.Views.ChatPage">
 	<ContentPage.Content>
-        <ListView ItemsSource="{Binding Messages}">
-            <ListView.ItemTemplate>
+        <local:ChatListView ItemsSource="{Binding Messages}">
+            <local:ChatListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="10">
 <!--                                <Label Text="{Binding Text}" HorizontalOptions="{Binding Position}" BackgroundColor="Aqua" TextColor="White" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />-->
-                            <local:MessageBubble Message="{Binding Text}"/>
+                            <local:MessageBubble Message="{Binding Text}" MyMessage="{Binding MyMessage}"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
-                </ListView.ItemTemplate>
-        </ListView>
+                </local:ChatListView.ItemTemplate>
+        </local:ChatListView>
 	</ContentPage.Content>
 </ContentPage>

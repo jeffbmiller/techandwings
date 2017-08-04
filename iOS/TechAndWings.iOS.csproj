@@ -145,6 +145,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="CustomRenderers\MessageBubbleIOS.cs" />
+    <Compile Include="CustomRenderers\ChatListViewIOSRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Entitlements.plist" />
