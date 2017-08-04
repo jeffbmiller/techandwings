@@ -144,6 +144,7 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="CustomRenderers\MessageBubbleIOS.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Entitlements.plist" />
@@ -152,6 +153,9 @@
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CustomRenderers\" />
   </ItemGroup>
   <Import Project="..\TechAndWings\TechAndWings.projitems" Label="Shared" Condition="Exists('..\TechAndWings\TechAndWings.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

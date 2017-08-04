@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
-
+using TechAndWings.Views;
 using Xamarin.Forms;
 
 namespace TechAndWings
 {
     public partial class App : Application
     {
-        public static bool UseMockDataStore = false;
+        public static bool UseMockDataStore = true;
         public static string BackendUrl = "https://techandwingsfunctions.azurewebsites.net/";
 
         public static IDictionary<string, string> LoginParameters => null;
@@ -49,9 +49,9 @@ namespace TechAndWings
                         Title = "Browse",
                         Icon = Device.OnPlatform("tab_feed.png", null, null)
                     },
-                    new NavigationPage(new AboutPage())
+                    new NavigationPage(new ChatPage())
                     {
-                        Title = "About",
+                        Title = "Chat",
                         Icon = Device.OnPlatform("tab_about.png", null, null)
                     },
                 }
