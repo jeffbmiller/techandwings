@@ -35,6 +35,8 @@ namespace TechAndWings.ViewModels
         private void OnSendMessage(){
             Messages.Add(new MessageViewModel(new Models.Message(){Text = Message, User=user},user));
             Message = null;
+			MessagingCenter.Send(this,"scollToLastMessage");
+		
         }
     }
 }

@@ -4,8 +4,8 @@
     xmlns:local="clr-namespace:TechAndWings;assembly:TechAndWings"
     x:Class="TechAndWings.Views.ChatPage">
 	<ContentPage.Content>
-        <StackLayout>
-            <local:ChatListView ItemsSource="{Binding Messages}">
+        <StackLayout Padding="10">
+            <local:ChatListView x:Name="listView" ItemsSource="{Binding Messages}">
                 <local:ChatListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -16,7 +16,6 @@
                         </DataTemplate>
                     </local:ChatListView.ItemTemplate>
             </local:ChatListView>
-            <ScrollView>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -26,7 +25,6 @@
                 <Entry Grid.Column="0" Text="{Binding Message}"/>
                 <Button Grid.Column="1" Text="Send" Command="{Binding SendMessageCommand}"/>
             </Grid>
-            </ScrollView>
         </StackLayout>
 	</ContentPage.Content>
 </ContentPage>
