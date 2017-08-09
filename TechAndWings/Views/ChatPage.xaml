@@ -4,17 +4,29 @@
     xmlns:local="clr-namespace:TechAndWings;assembly:TechAndWings"
     x:Class="TechAndWings.Views.ChatPage">
 	<ContentPage.Content>
-        <local:ChatListView ItemsSource="{Binding Messages}">
-            <local:ChatListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Padding="10">
-<!--                                <Label Text="{Binding Text}" HorizontalOptions="{Binding Position}" BackgroundColor="Aqua" TextColor="White" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />-->
-                            <local:MessageBubble Message="{Binding Text}" MyMessage="{Binding MyMessage}"/>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </local:ChatListView.ItemTemplate>
-        </local:ChatListView>
+        <StackLayout>
+            <local:ChatListView ItemsSource="{Binding Messages}">
+                <local:ChatListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10">
+                                <local:MessageBubble Message="{Binding Text}" MyMessage="{Binding MyMessage}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </local:ChatListView.ItemTemplate>
+            </local:ChatListView>
+            <ScrollView>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="70"/>
+                </Grid.ColumnDefinitions>
+
+                <Entry Grid.Column="0" Text="{Binding Message}"/>
+                <Button Grid.Column="1" Text="Send" Command="{Binding SendMessageCommand}"/>
+            </Grid>
+            </ScrollView>
+        </StackLayout>
 	</ContentPage.Content>
 </ContentPage>
