@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using Firebase.Analytics;
 using Foundation;
+using TechAndWings.Services;
 using UIKit;
 
 namespace TechAndWings.iOS
@@ -13,6 +14,7 @@ namespace TechAndWings.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            Xamarin.Forms.DependencyService.Register<IFirebaseDatabaseService, FirebaseDatabaseIOSService>();
             LoadApplication(new App());
 
 
