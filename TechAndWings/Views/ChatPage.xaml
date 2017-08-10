@@ -5,8 +5,8 @@
     x:Class="TechAndWings.Views.ChatPage">
 	<ContentPage.Content>
         <StackLayout Padding="10">
-            <local:ChatListView x:Name="listView" ItemsSource="{Binding Messages}">
-                <local:ChatListView.ItemTemplate>
+            <ListView x:Name="listView" SeparatorVisibility="None" ItemsSource="{Binding Messages}">
+                <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Padding="10">
@@ -14,8 +14,8 @@
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
-                    </local:ChatListView.ItemTemplate>
-            </local:ChatListView>
+                    </ListView.ItemTemplate>
+            </ListView>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
