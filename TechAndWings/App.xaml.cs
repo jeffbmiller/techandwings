@@ -6,7 +6,7 @@ namespace TechAndWings
 {
     public partial class App : Application
     {
-        public static bool UseMockDataStore = true;
+        public static bool UseMockDataStore = false;
         public static string BackendUrl = "https://techandwingsfunctions.azurewebsites.net/";
 
         public static IDictionary<string, string> LoginParameters => null;
@@ -46,7 +46,7 @@ namespace TechAndWings
                 Children = {
                     new NavigationPage(new ItemsPage())
                     {
-                        Title = "Browse",
+                        Title = "Meetups",
                         Icon = Device.OnPlatform("tab_feed.png", null, null)
                     },
                     new NavigationPage(new ChatPage())

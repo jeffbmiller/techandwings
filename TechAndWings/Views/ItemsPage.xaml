@@ -15,11 +15,11 @@
             IsRefreshing="{Binding IsBusy, Mode=OneWay}">
     <ListView.GroupHeaderTemplate>
       <DataTemplate>
-        <ViewCell Height="25">
+        <ViewCell Height="30">
           <StackLayout VerticalOptions="FillAndExpand"
                        Padding="10"
                        BackgroundColor="#3498DB">
-            <Label Text="{Binding Heading}" TextColor="White" VerticalOptions="Center"/>
+            <Label Text="{Binding Heading}" TextColor="White" VerticalOptions="CenterAndExpand"/>
           </StackLayout>
         </ViewCell>
       </DataTemplate>
@@ -29,8 +29,9 @@
         <ViewCell>
             <StackLayout Padding="10">
               <Label Text="{Binding Date, StringFormat='{0:yyyy/MM/dd}'}" FontAttributes="Bold"/>  
-              <Label Text="{Binding Location}" FontAttributes="Bold"/>  
-             <Label Text="{Binding Topics}"/>  
+              <Label Text="{Binding Location}" FontAttributes="Bold"/> 
+              <Label Text="{Binding Topics}"/> 
+              <Label Text="{Binding AttendeesDispplay}" FontAttributes="Bold"/>  
             </StackLayout>
         </ViewCell>
       </DataTemplate>

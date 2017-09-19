@@ -18,7 +18,7 @@ namespace TechAndWings
 
         public ItemsViewModel()
         {
-            Title = "Browse";
+            Title = "Meetups";
             Items = new ObservableRangeCollection<Item>();
             DaysGroupings = new ObservableCollection<DayGroupList>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
@@ -34,6 +34,7 @@ namespace TechAndWings
             try
             {
                 Items.Clear();
+                DaysGroupings.Clear();
                 var items = await DataStore.GetItemsAsync(true);
                 Items.ReplaceRange(items);
 

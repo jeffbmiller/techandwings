@@ -18,5 +18,7 @@ namespace TechAndWings
 		[JsonProperty("people")]
 		public int People { get; set; }
 
+        public string AttendeesDispplay => $"Attendees: {People}";
+
     }
 }
