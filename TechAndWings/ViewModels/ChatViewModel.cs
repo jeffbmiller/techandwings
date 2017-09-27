@@ -10,19 +10,14 @@ namespace TechAndWings.ViewModels
     {
         private string user = "Jeff";
         private IFirebaseDatabaseService db;
+
+        private IFirebaseDatabaseReference dbRef;
+
         public ChatViewModel()
         {
             db = DependencyService.Get<IFirebaseDatabaseService>();
             Messages = new ObservableCollection<MessageViewModel>();
 
-            db.StartStreamingChatMessage(x =>
-            {
-                Messages.Add(new MessageViewModel(x,user));
-            });
-            //Messages.Add(new MessageViewModel(new Message(){Text="Welcome To Chat", User="Admin"}, user));
-            //Messages.Add(new MessageViewModel(new Message() { Text = "Where do we want to meet this month?", User = "Jeff" }, user));
-            //Messages.Add(new MessageViewModel(new Message() { Text = "How about The Decker?", User = "James" }, user));
-            //Messages.Add(new MessageViewModel(new Message() { Text = "Sounds good to me.", User = "Jeff" }, user));
 
             SendMessageCommand = new Command(() => OnSendMessage(), () => Message != null);
         }
@@ -40,11 +35,21 @@ namespace TechAndWings.ViewModels
 
         private void OnSendMessage(){
 
-            db.Add(new Models.Message(){Text = message, User= user});
-            Messages.Add(new MessageViewModel(new Models.Message(){Text = Message, User=user},user));
+            db.Add(new Models.ChatMessage(){Message = message, User= user, Timestamp = DateTime.Now});
             Message = null;
-			MessagingCenter.Send(this,"scollToLastMessage");
-		
+        }
+
+        public void SubscribeToChatMessages(){
+            Messages.Clear();
+			dbRef = db.StartStreamingChatMessage(x =>
+			{
+				Messages.Add(new MessageViewModel(x, user));
+				MessagingCenter.Send(this, "scollToLastMessage");
+			});
+		}
+
+        public void UnSubscribeToChatMessages(){
+            dbRef.StopObserving();
         }
     }
 }

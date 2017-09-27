@@ -5,16 +5,16 @@ namespace TechAndWings.ViewModels
 {
     public class MessageViewModel : BaseViewModel
     {
-        private Message message;
+        private ChatMessage message;
         private string currentUser;
 
-        public MessageViewModel(Message message, string currentUser)
+        public MessageViewModel(ChatMessage message, string currentUser)
         {
             this.message = message;
             this.currentUser = currentUser;
         }
 
-        public string Text => message.Text;
+        public string Text => message.Message;
 
         public bool MyMessage => message.User == currentUser;
     }

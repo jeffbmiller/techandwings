@@ -19,5 +19,17 @@ namespace TechAndWings.Views
                 listView.ScrollTo(viewModel.Messages.LastOrDefault(),ScrollToPosition.End,true);
             });
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            viewModel.SubscribeToChatMessages();
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            viewModel.UnSubscribeToChatMessages();
+        }
     }
 }

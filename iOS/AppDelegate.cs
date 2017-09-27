@@ -16,7 +16,7 @@ namespace TechAndWings.iOS
             global::Xamarin.Forms.Forms.Init();
             Xamarin.Forms.DependencyService.Register<IFirebaseDatabaseService, FirebaseDatabaseIOSService>();
             LoadApplication(new App());
-
+            Firebase.Analytics.App.Configure();
 
 
             return base.FinishedLaunching(app, options);

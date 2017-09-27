@@ -5,7 +5,12 @@ namespace TechAndWings.Services
 {
     public interface IFirebaseDatabaseService
     {
-        void StartStreamingChatMessage(Action<Message> callback);
-        void Add(Message message);
+        IFirebaseDatabaseReference StartStreamingChatMessage(Action<ChatMessage> callback);
+        void Add(ChatMessage message);
+    }
+
+    public interface IFirebaseDatabaseReference
+    {
+        void StopObserving();
     }
 }
