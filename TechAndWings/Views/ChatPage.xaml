@@ -13,8 +13,8 @@
                 <Entry Grid.Column="0" Text="{Binding Message}"/>
                 <Button Grid.Column="1" Text="Send" Command="{Binding SendMessageCommand}"/>
             </Grid>
-            <ListView x:Name="listView" SeparatorVisibility="None" ItemsSource="{Binding Messages}" HasUnevenRows="true">
-                <ListView.ItemTemplate>
+            <local:ChatListView x:Name="listView" SeparatorVisibility="None" ItemsSource="{Binding Messages}" HasUnevenRows="true">
+                <local:ChatListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Padding="0,10,10,0">
@@ -23,8 +23,8 @@
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
-                    </ListView.ItemTemplate>
-            </ListView>
+                    </local:ChatListView.ItemTemplate>
+            </local:ChatListView>
         </StackLayout>
 	</ContentPage.Content>
 </ContentPage>

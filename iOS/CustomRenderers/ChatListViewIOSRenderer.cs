@@ -17,8 +17,7 @@ namespace TechAndWings.iOS.CustomRenderers
 			if (e.NewElement != null)
 			{
 				var tableView = Control as UITableView;
-
-				tableView.SeparatorStyle = UITableViewCellSeparatorStyle.None;
+                tableView.AllowsSelection = false;
 			}
         }
     }
