@@ -10,22 +10,21 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="70"/>
                 </Grid.ColumnDefinitions>
-
                 <Entry Grid.Column="0" Text="{Binding Message}"/>
                 <Button Grid.Column="1" Text="Send" Command="{Binding SendMessageCommand}"/>
             </Grid>
-            <ListView x:Name="listView" SeparatorVisibility="None" ItemsSource="{Binding Messages}">
+            <ListView x:Name="listView" SeparatorVisibility="None" ItemsSource="{Binding Messages}" HasUnevenRows="true">
                 <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <StackLayout Padding="10">
-                                <local:MessageBubble Message="{Binding Text}" MyMessage="{Binding MyMessage}"/>
+                                <StackLayout Padding="0,10,10,0">
+                                <Label Margin="10,0,0,0" Text="{Binding User}" FontSize="8" IsVisible="{Binding ShowUser}"/>
+                                <local:MessageBubble Margin="10,0,0,0" Message="{Binding Text}" MyMessage="{Binding MyMessage}"/>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
             </ListView>
-           
         </StackLayout>
 	</ContentPage.Content>
 </ContentPage>

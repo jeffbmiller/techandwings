@@ -8,7 +8,7 @@ namespace TechAndWings.ViewModels
 {
     public class ChatViewModel : BaseViewModel
     {
-        private string user = "Jeff";
+        private string user = "Peter";
         private IFirebaseDatabaseService db;
 
         private IFirebaseDatabaseReference dbRef;
